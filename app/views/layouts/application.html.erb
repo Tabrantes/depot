@@ -3,15 +3,16 @@
   <head>
     <title>Depot</title>
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all',
-      'data-turbolinks-track': 'reload' %>
+    'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
     <main class='<%= controller.controller_name %>'>
-    <%= yield %>
+      <%= yield %>
     </main>
 
   </body>

@@ -4,7 +4,7 @@ before_action :set_product, only: [:show, :edit, :update, :destroy]
 # GET /products
 # GET /products.json
 def index
- @products = Product.all
+  @products = Product.all.order(:title)
 end
 
 # GET /products/1
@@ -44,6 +44,10 @@ def update
     if @product.update(product_params)
      format.html { redirect_to @product, notice: 'Product was successfully updated.' }
      format.json { render :show, status: :ok, location: @product }
+
+     @products = Product.all.order(:title)
+     ActionCable.server.broadcast 'products',
+       html: render_to_string('store/index', layout: false)
 else
      format.html { render :edit }
      format.json { render json: @product.errors, status: :unprocessable_entity }

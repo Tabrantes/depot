@@ -65,7 +65,6 @@ class CartsController < ApplicationController
     end
   end
 
-  private
   # Use callbacks to share common setup or constraints between actions.
   def set_cart
     @cart = Cart.find(params[:id])
@@ -75,9 +74,11 @@ class CartsController < ApplicationController
   def cart_params
     params.fetch(:cart, {})
   end
+  private
+  # ...
 
- def invalid_cart
-   logger.error "Attempt to acess invalid cart #{params[:id]}"
-   redirect_to store_index_url, notice: 'Invalide cart'
- end
+  def invalid_cart
+    logger.error "Attempt to acess invalid cart #{params[:id]}"
+    redirect_to store_index_url, notice: 'Invalide cart'
+  end
 end

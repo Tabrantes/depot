@@ -86,6 +86,3 @@ def who_bought
     end
   end
 end
-    end
-  end
-end

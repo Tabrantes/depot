@@ -55,4 +55,3 @@ def charge!(pay_type_params)
     raise payment_result.error
   end
 end
-end

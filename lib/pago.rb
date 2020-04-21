@@ -1,10 +1,3 @@
-payment_result = Pago.make_payment(
-  order_id: order.id,
-  payment_method: :check,
-  payment_details: { routing: xxx, account: yyy }
-)
-
-require 'ostruct'
 class Pago
   def self.make_payment(order_id:,
                         payment_method:,

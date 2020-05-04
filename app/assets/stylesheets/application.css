@@ -199,3 +199,7 @@ header.main {
       color: white;
       }
       }
+      .locale {
+      float: right;
+      margin: 1em;
+      }

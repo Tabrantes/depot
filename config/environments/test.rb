@@ -49,11 +49,12 @@ Rails.application.configure do
     password:       "secret",
     enable_starttls_auto: true
   }
-end
+
 
   # Print deprecation notices to the stderr.
   config.active_support.deprecation = :stderr
-
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
+  config.active_storage.service = :test
+
 end

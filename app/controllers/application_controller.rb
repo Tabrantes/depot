@@ -15,9 +15,15 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+
   def authorize
     unless User.find_by(id: session[:user_id])
       redirect_to login_url, notice: "Please log in"
     end
   end
 end
+
+  def send_secret_file
+    send_file("/files/secret_list")
+    headers["Content-Description"] = "Top secret"
+  end

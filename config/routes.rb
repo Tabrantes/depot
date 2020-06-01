@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  resources :products do
+    get :who_bought, on: :member
+  end
+  concern :reviewable do
+    resources :reviews
+  end
+  resources :products, concern: :reviewable
+  resources :users, concern: :reviewable
+  resources :products, shallow: true do
+    resources :reviews
+  end
+
   get 'admin' => 'admin#index'
   controller :sessions do
     get 'login' => :new
@@ -13,6 +25,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :products do
+    resources :reviews
     get :who_bought, on: :member
   end
 

@@ -15,6 +15,10 @@ class OrdersController < ApplicationController
   # GET /orders/1
   # GET /orders/1.json
   def show
+    respond_to do |format|
+      format.html
+      format.json { render json: @product.to_json }
+    end
   end
 
   # GET /orders/new

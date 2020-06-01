@@ -117,3 +117,16 @@ end
 o = Order.find(1)
 puts o.name #=> "Dave Thomas"
 o.name = "Fred Smith" # set the name
+Order.first.pay_type #=> "Check", a string
+Order.first.pay_type_before_type_cast #=> 0, an integer
+
+book = LegacyBook.new
+book.id = "0-12345-6789"
+book.title = "My Great American Novel"
+book.save
+# ...
+book = LegacyBook.find("0-12345-6789")
+puts book.title # => "My Great American Novel"
+p book.attributes #=> {"isbn" =>"0-12345-6789",
+
+# "title"=>"My Great American Novel"}

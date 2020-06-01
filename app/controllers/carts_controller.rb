@@ -83,3 +83,11 @@ class CartsController < ApplicationController
     redirect_to store_index_url, notice: 'Invalide cart'
   end
 end
+
+def display_cart
+  if @cart.empty?
+    render(action: :index)
+  else
+    # ...
+  end
+end

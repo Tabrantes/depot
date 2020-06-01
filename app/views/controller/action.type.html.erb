@@ -1,0 +1,8 @@
+# DO NOT DO THIS
+def update
+@user = User.find(params[:id])
+if @user.update(user_params)
+render action: show
+end
+render template: "fix_user_errors"
+end
